@@ -1,0 +1,91 @@
+body {
+    font-family: 'Share Tech Mono', monospace;
+    text-align: center;
+    background: linear-gradient(135deg, #000000, #00ff88);
+    margin: 0;
+    padding: 0;
+    color: #00ff88;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2.5em;
+    color: black;
+    text-shadow:
+       0 0 5px #00ff00,
+       0 0 10px #00ff00,
+       0 0 20px #00ff00,
+       0 0 40px #00ff00;
+}
+
+#gameArea {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 400px;
+    margin: 20px auto;
+    background: rgba(0, 255, 136, 0.05);
+    border: 2px solid rgba(0, 255, 136, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
+    overflow: hidden;
+}
+
+#backgroundPic {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 0;  
+}
+
+#uploadedImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#hat {
+    position: absolute;
+    width: 100px;
+    cursor: grab;
+    display: none;
+    filter: drop-shadow(0 0 10px #00ff88);
+    transition: transform 0.2s ease, left 0.2s ease, top 0.2s ease;
+    z-index: 2;
+}
+
+#hat.flash {
+    animation: flash 0.5s ease;
+}
+
+@keyframes flash {
+    0% { filter: drop-shadow(0 0 20px #00ff88); transform: scale(1.2); }
+    100% { filter: drop-shadow(0 0 10px #00ff88); transform: scale(1); }
+}
+
+.note {
+    font-size: 14px;
+    color: #000604;
+    background: rgba(0, 255, 136, 0.1);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.decoy {
+    pointer-events: none; 
+    opacity: 0.7;
+    animation: flicker 1.5s ease forwards;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.7; }
+    100% { opacity: 0; }
+}
